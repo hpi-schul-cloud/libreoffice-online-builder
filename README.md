@@ -17,7 +17,7 @@ Vorab: Einfach das `lool-builder.sh` Skript so durchlaufen zu lassen __funktioni
 
 Weil: Im Verlauf des Image bauen wird das tageasaktuelle libreoffice-core und libreoffice-online git-Repository geklont und der _master_ ausgecheckt. Der Source-Code beider Repositories wird im Laufe dessen konfiguriert und kompiliert. Das bedeutet aber eben auch, dass sich die Konfigurations- und Kompililierungs-Optionen ändern können.
 
-Ergo, es __muss__ vor dem Image bauen das `lool-builder.sh` Skript angepasst werden. Aber auch die Wahl der Betriebssystem ist nicht willkürlich.
+Ergo, es __muss__ vor dem Image bauen das `lool-builder.sh` Skript angepasst werden. Aber auch die Wahl des Betriebssystem ist nicht willkürlich.
 
 Und wie? na man schaut sich das [Nightly Build Skript] von libreoffice-online an.
 
