@@ -55,15 +55,12 @@ Im Dockerfile steht an erster Stelle, welches Betriebssystem genutzt werden soll
   Das erstellt den `lool` User und verschiebt das `lool-builder.sh` Skript.
 
 - Werde zu `lool` User: `su - lool` und führe das Skript aus: `bash lool-builder.sh`
-  Ab nun kann es etwas dauern. Aktuell läuft das Skript bis zum Ende ohne Probleme durch.
-  __Aber!__ Es hat noch während der Entwicklung des Skripts des Öfteren Laufabbrüche gegeben, wenn z.B. benötigte Libraries fehlten.  
-  Auch konnte beobachtet werden, dass beim Kompilieren des Libreoffice-Online (loleaflet), es zu Fehlern im Zusammenhang mit `sudo /sbin/setcap cap_sys_admin=ep loolmount;` bzw. `sudo /sbin/setcap cap_fowner,cap_mknod,cap_sys_chroot=ep loolforkit;` kommt. Das konnte ich nie richtig nachvollziehen, da beim _erneuten_ Aufruf des Skriptes diese Schritte erfolreich waren.
+  Ab nun kann es etwas dauern. Aktuell läuft das Skript bis zum Ende ohne Probleme durch. __Aber!__ Es hat noch während der Entwicklung des Skripts des Öfteren Laufabbrüche gegeben, wenn z.B. benötigte Libraries fehlten. Auch konnte beobachtet werden, dass beim Kompilieren des Libreoffice-Online (loleaflet), es zu Fehlern im Zusammenhang mit `sudo /sbin/setcap cap_sys_admin=ep loolmount;` bzw. `sudo /sbin/setcap cap_fowner,cap_mknod,cap_sys_chroot=ep loolforkit;` kommt. Das konnte ich nie richtig nachvollziehen, da beim _erneuten_ Aufruf des Skriptes diese Schritte erfolreich waren.
 
 - Wenn alles soweit durchläuft und das letzte 'OK' erscheint, ist die Arbeit im LXC getan.
 
-- Wechsle wieder auf den Server und erstelle das Docker Image
-  Am Ende des Skripts erscheinen die Anweisungen, wie das ablaufen kann. Das kann auf dem Server oder im LXC passieren, je nach dem wo der Docker Daemon läuft.  
-  Schliesslich muss das Docker Image nach `schulcloud/libreoffice:latest` gepusht werden. Dazu braucht man natürlich einen Docker Account und die entsprechenden Berechtigungen (Ist das nicht gegeben, dann wird zumindest das Docker Image als `docker-image-libreoffice-online.tar.xz` im `builddir` gespeichert).
+- Erstelle das Docker Image. Am Ende des Skripts erscheinen die Anweisungen, wie das ablaufen kann. 
+  Das kann auf dem Server oder im LXC passieren, je nach dem wo der Docker Daemon läuft. Schliesslich muss das Docker Image nach `schulcloud/libreoffice:latest` gepusht werden. Dazu braucht man natürlich einen Docker Account und die entsprechenden Berechtigungen (Ist das nicht gegeben, dann wird zumindest das Docker Image als `docker-image-libreoffice-online.tar.xz` im `builddir` gespeichert).
 
 ## Docker Container
 
