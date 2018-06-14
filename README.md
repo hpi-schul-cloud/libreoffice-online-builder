@@ -36,6 +36,8 @@ Natürlich müssen noch zwei Konfigurations-Optionen hinzugefügt werden (was ja
 ```
 müssen noch die Optionen `--with-max-connections=100000 --with-max-documents=100000` hinzugefügt werden.
 
+Ach, und es macht durchaus Sinn auch das [Dockerfile] sich anzuschauen (auf diese Weise konnte ich erfahren, wie libreoffice mit den `libpoco` Libraries umgeht - die entsprechenden `libpoco-dev` Pakete müssen natürlich im LXC auch installiert werden).
+
 ## Betriebssystem
 
 Das Bauen des Images erfolgt mit dem [Dockerfile] des Libreoffice-Online Repository. 
