@@ -3,7 +3,6 @@
 # Preparations
 
 # Dieses Skript ist angedacht, in einem LXContainer ausgeführt zu werden
-# Die Erstellung des Docker Images muss daher auf dem Host ausgeführt werden.
 
 echo "deb https://collaboraoffice.com/repos/Poco/ /" >> /etc/apt/sources.list.d/poco.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
@@ -13,6 +12,8 @@ if ! grep lool /etc/passwd
 then
     useradd -U -m -s /bin/bash lool
     echo 'lool ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+    mv $0 /home/lool
+    chown lool: /home/lool/$0
 fi
 
 if id | grep -v lool
@@ -230,11 +231,11 @@ cp -a libreoffice/instdir "$INSTDIR"/opt/libreoffice
 # copy stuff
 ( cd online && DESTDIR="$INSTDIR" make install ) || exit 1
 
+# Create new docker image
+
 echo
 echo 'OK'
 echo
-
-# Create new docker image
 
 echo '# Wenn Docker auf dem Server laeuft'
 echo 'cd /var/lib/lxd/containers/loolbuilder/rootfs/home/lool/online/docker'
