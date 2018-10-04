@@ -12,12 +12,23 @@ if ! grep lool /etc/passwd
 then
     useradd -U -m -s /bin/bash lool
     echo 'lool ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-    mv $0 /home/lool
-    chown lool: /home/lool/$0
 fi
 
 if id | grep -v lool
 then
+    if [ -z "$SC_THEME" ]
+    then
+        sudo cp -rf data/office.css /home/lool/office.css
+        sudo cp -rf data/favicon-48.png /home/lool/favicon-48.png
+    else
+        sudo cp -rf data/office-n21.css /home/lool/office.css
+        sudo cp -rf data/logo.png /home/lool/favicon-48.png
+    fi
+    sudo cp -rf $0 /home/lool
+    chown lool: /home/lool/$0
+    chown lool: /home/lool/office.css
+    chown lool: /home/lool/favicon-48.png
+
     echo "Als lool user ausfuehren"
     exit 1
 fi
@@ -155,6 +166,10 @@ fi
 
 ##### LibreOffice #####
 
+# add sc specific stuff
+mv /home/lool/office.css /home/lool/online/loleaflet/css/
+mv /home/lool/favicon-48.png /home/lool/online/loleaflet/images/
+
 # build LibreOffice
 cat > libreoffice/autogen.input << EOF
 --disable-cups
@@ -249,7 +264,7 @@ echo 'export BUILDDIR="$SRCDIR/builddir"'
 
 echo 'cd "$SRCDIR"'
 echo 'TAGSHORT="schulcloud/libreoffice"'
-echo 'TAG="$TAGSHORT:latest"'
+echo 'TAG="$TAGSHORT:latest${SC_THEME}"'
 echo 'dockerid="$(docker build -q --no-cache -t "$TAG" . )" || exit 1'
 echo 'echo $dockerid'
 echo 'docker save "${TAGSHORT}" |xz > "${BUILDDIR}/docker-image-libreoffice-online.tar.xz"'
