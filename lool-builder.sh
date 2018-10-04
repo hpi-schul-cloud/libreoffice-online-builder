@@ -24,10 +24,12 @@ then
         sudo cp -rf data/office-n21.css /home/lool/office.css
         sudo cp -rf data/logo.png /home/lool/favicon-48.png
     fi
+    sudo cp -rf data/Makefile.am /home/lool
     sudo cp -rf $0 /home/lool
     chown lool: /home/lool/$0
     chown lool: /home/lool/office.css
     chown lool: /home/lool/favicon-48.png
+    chown lool: /home/lool/Makefile.am
 
     echo "Als lool user ausfuehren"
     exit 1
@@ -167,8 +169,9 @@ fi
 ##### LibreOffice #####
 
 # add sc specific stuff
-mv /home/lool/office.css /home/lool/online/loleaflet/css/
-mv /home/lool/favicon-48.png /home/lool/online/loleaflet/images/
+sudo cp -rf /home/lool/office.css /home/lool/online/loleaflet/css/
+sudo cp -rf /home/lool/favicon-48.png /home/lool/online/loleaflet/images/
+sudo cp -rf /home/lool/Makefile.am /home/lool/online/loleaflet
 
 # build LibreOffice
 cat > libreoffice/autogen.input << EOF
