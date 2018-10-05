@@ -169,9 +169,9 @@ fi
 ##### LibreOffice #####
 
 # add sc specific stuff
-sudo cp -rf /home/lool/office.css /home/lool/online/loleaflet/css/
-sudo cp -rf /home/lool/favicon-48.png /home/lool/online/loleaflet/images/
-sudo cp -rf /home/lool/Makefile.am /home/lool/online/loleaflet
+sudo cp -rf /home/lool/office.css /home/lool/online/docker/builddir/online/loleaflet/css/
+sudo cp -rf /home/lool/favicon-48.png /home/lool/online/docker/builddir/online/loleaflet/images/
+sudo cp -rf /home/lool/Makefile.am /home/lool/online/docker/builddir/online/loleaflet/
 
 # build LibreOffice
 cat > libreoffice/autogen.input << EOF
