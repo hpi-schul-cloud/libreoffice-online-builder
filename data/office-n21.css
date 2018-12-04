@@ -1,0 +1,88 @@
+.header-wrapper {
+    background: #fff
+}
+
+.header-wrapper:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 8px 16px;
+    width: 100px;
+    height: 50px;
+    background: url(images/favicon-48.png) no-repeat center;
+    background-size: contain
+}
+
+.header-wrapper .lo-menu>li,
+.header-wrapper .lo-menu>li>a {
+    background: #fff
+}
+
+.header-wrapper .lo-menu>li.disabled:hover,
+.header-wrapper .lo-menu>li>a.disabled:hover {
+    color: #ccc;
+    border-bottom: none
+}
+
+.header-wrapper .w2ui-toolbar {
+    background-color: #fff
+}
+
+.header-wrapper .w2ui-toolbar .w2ui-button.checked {
+    border: none;
+    background-color: #78aae5
+}
+
+.header-wrapper .w2ui-toolbar .w2ui-button.checked>* {
+    -webkit-filter: brightness(1000);
+    filter: brightness(1000);
+    opacity: .9
+}
+
+.w2ui-overlay-toolbar-up .ui-widget-content {
+    max-height: 50vh;
+    overflow-y: auto
+}
+
+#document-container .leaflet-container {
+    background: #eee
+}
+
+#toolbar-down.w2ui-toolbar {
+    color: #fff;
+    background-color: #78aae5
+}
+
+#toolbar-down.w2ui-toolbar table.w2ui-button .w2ui-tb-caption {
+    color: #fff
+}
+
+#toolbar-down.w2ui-toolbar table.w2ui-button .w2ui-tb-down>div {
+    border-top-color: #fff
+}
+
+#toolbar-down.w2ui-toolbar table.w2ui-button.checked,
+#toolbar-down.w2ui-toolbar table.w2ui-button.over {
+    background-color: transparent;
+    border-color: #fff
+}
+
+#toolbar-down.w2ui-toolbar .w2ui-icon {
+    -webkit-filter: brightness(1000);
+    filter: brightness(1000)
+}
+
+.w2ui-overlay>div {
+    border-color: #78aae5;
+    border-width: 2px
+}
+
+.w2ui-overlay.bottom-arrow:before {
+    border-top-color: #78aae5
+}
+
+.w2ui-overlay.top-arrow:before {
+    border-bottom-color: #78aae5;
+    margin-bottom: -4px
+}
